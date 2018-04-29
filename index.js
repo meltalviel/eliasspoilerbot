@@ -1,11 +1,16 @@
 'use strict';
 
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const Discord = require('discord.js');
+const SpoilerBot = require('discord-spoiler-bot');
+
+let client = new Discord.Client();
 
 let config = {
+    client: client,
     markAllowAll: true,
     maxLines: 16,
 };
 
-client.login(process.env.BOT_TOKEN);
+let bot = new SpoilerBot(config);
+client.login(process.env.BOT_TOKEN)
+    .then(() => bot.connect());
