@@ -1,9 +1,11 @@
 'use strict';
 
-const Discord = require('discord.js');
+const Discord = require('discord.io');
 const SpoilerBot = require('discord-spoiler-bot');
 
-let client = new Discord.Client();
+let client = new Discord.Client({
+    autorun: true,
+});
 
 let config = {
     client: client,
@@ -12,7 +14,7 @@ let config = {
 };
 
 let bot = new SpoilerBot(config,{disableEveryone: true});
-bot.connect("ready", async () => {
-});
+
 client.login(process.env.BOT_TOKEN)
-    .then(() => bot.connect());
+    .then(() => bot.connect("ready", async () => {
+});
