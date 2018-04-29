@@ -10,9 +10,4 @@ let config = {
     maxLines: 16,
 };
 
-let bot = new SpoilerBot(config,{disableEveryone: true});
-
-bot.connect("ready", async () => {
-});
-
 client.login(process.env.BOT_TOKEN);
